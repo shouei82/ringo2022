@@ -1,0 +1,18 @@
+@use "../foundation/import" as *;
+
+.slide {
+  display: flex;
+}
+
+.slide__item {
+  width: 100%;
+  height: 100vh;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}

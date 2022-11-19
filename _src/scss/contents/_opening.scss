@@ -1,0 +1,79 @@
+@use "../foundation/import" as *;
+
+.opening {
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  height: 100vh;
+}
+
+.opening__container {
+  position: absolute;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  padding: 5vh 0 7vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .opening__container {
+    height: fill-available;
+  }
+}
+
+.opening__logo {
+  max-width: 148px;
+  margin: 0 auto;
+
+  svg {
+    width: 100%;
+    fill: #fff;
+  }
+}
+
+.opening__name {
+  display: flex;
+  gap: .2rem;
+
+  svg {
+    width: 100%;
+    fill: $color-main;
+  }
+
+  @include mq {
+    flex-direction: column;
+    gap: .07rem;
+  }
+}
+
+.opening__date {
+  margin: .1rem 0 0;
+  text-align: center;
+}
+
+.opening__line {
+  flex: 1;
+  width: 1px;
+  margin: 0 auto;
+  background: #fff;
+  opacity: .45;
+}
+
+.opening__btn {
+  text-align: center;
+  animation: btn 1s linear infinite alternate;
+}
+
+@keyframes btn {
+  100% { opacity: 0; }
+}
+
+.opening__bg {
+  position: relative;
+  z-index: 100;
+  background: #fff;
+}

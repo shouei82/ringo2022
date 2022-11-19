@@ -1,0 +1,23 @@
+<%
+  let localmeta = {
+    page: "",
+    current: "day1",
+    title: ""
+  }
+%>
+<% include ./_functions %>
+<%- include("./_header",{meta: localmeta}) %>
+
+<div class="wrapper">
+
+  <div class="other">
+    <h2 class="other__heading"><img src="images/heading_day1.svg" alt=""></h2>
+    <div class="other__container">
+      <%- otherlist("1") %>
+    </div>
+  </div>
+
+</div><!-- /.wrapper -->
+
+
+<%- include("./_footer",{meta: localmeta}) %>

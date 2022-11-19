@@ -1,0 +1,154 @@
+<%_
+//---------------------------------------------------------
+//
+// フォトグラファークレジット
+//
+//---------------------------------------------------------
+  const orii = '折井康弘';
+  const tohr = 'みやちとーる（ステキ工房）';
+  const hira = '平林岳志（grasshopper）';
+  const kats = 'katsunori abe';
+  const wata = '渡邉和弘';
+  const higa = '東玄太';
+  const kuma = 'Shota Kumagai';
+
+  caption = function(str,artist,type) {
+    let photoFileName = str.slice(4,-4);
+    let photographer;
+
+    switch (photoFileName){
+      case 'orii':  photographer = orii; break;
+      case 'tohr':  photographer = tohr; break;
+      case 'hira':  photographer = hira; break;
+      case 'kats':  photographer = kats; break;
+      case 'wata':  photographer = wata; break;
+      case 'higa':  photographer = higa; break;
+      case 'kuma':  photographer = kuma; break;
+    }
+
+    if(type == "top") {
+
+      // テスト用
+      //let url = '<span style="color:#F00;font-size:18px;font-weight:bold;"> ' + str.slice(-12) + '</span>';
+      //return url + "　" + "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+
+      // 本番用
+      return "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+
+    } else {
+
+      // テスト用
+      //let url = "<span style='color:#F00;font-size:18px;font-weight:bold;'> " + str.slice(-12) + "</span>";
+      //return url + "　" + "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+
+      // 本番用
+      return "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+
+    }
+
+  }
+_%>
+
+
+
+
+<%_
+//---------------------------------------------------------
+//
+// トップページ用
+// アーティスト数分ループし、かつ画像ファイル数分ループする
+//
+//---------------------------------------------------------
+artist = function(stageName) {
+  for(var n in dataArtist) {
+    if(dataArtist[n].stage == stageName) {
+      let artistSubName = dataArtist[n].name;
+      //let subNameJudge = artistSubName.indexOf("［");
+
+      /*
+      サブタイトルを<span>で囲む。
+      サブタイトル以外にも（）とか出てくるため、json側で" () "とかにしておき、spanした後、全角に直す。
+      json変換した時に""が“”になっちゃってるやつもここで変換。
+      */
+
+      // <em>下津光史</em><small>（踊ってばかりの国）</small> のように名前をemで囲み、カッコ書きをsmallで囲みたい。
+      let subNameJudge = artistSubName.replace(/［(.*?)］/g,"<small>［$1］</small>")
+                                      .replace(/（(.*?)）/g,"<small>（$1）</small>")
+                                      .replace(/『(.*?)』/g,"<small>『$1』</small>")
+                                      .replace(/〈(.*?)〉/g,"<small>〈$1〉</small>")
+                                      .replace(/“(.*?)”/g,'"$1"')
+                                      .replace(/\s\((.*?)\)\s/g,'（$1）') // ここまで、カッコ書きを<small>タグで囲む
+                                      .replace(/^(.*?)$/g,'<em>$1</em>') // 一旦1行全て<em>で囲む
+                                      .replace(/\<small\>(.*)\<\/small\>\<\/em\>/g,'</em><br><small>$1</small>'); // <small>を判定して<em>の位置を変える
+
+_%>
+
+<li class="stage__item">
+  <a class="artist btn-artist" href="artist/<%- dataArtist[n].stage %><%- dataArtist[n].order %>.html">
+    <h3 class="artist__name"><%- subNameJudge %></h3>
+    <figure class="artist__photo"><img src="images/<%- dataArtist[n].stage %>_thumb/<%- dataArtist[n].order %>.jpg" loading="lazy" alt=""></figure>
+  </a>
+</li>
+
+<%_
+    }
+  }
+}
+_%>
+
+
+
+<%_
+//---------------------------------------------------------
+//
+// パリピ用
+// サムネイルコンテナ（native lazy）
+//
+//---------------------------------------------------------
+other = function(day,fileName) {
+_%>
+
+<div class="other__item">
+  <div class="other__inner">
+    <a href="images/day<%- day %>_other_photo/<%- fileName %>" title="<%- caption(fileName) -%>">
+      <picture>
+        <source media="(max-width: 767px)" srcset="images/day<%- day %>_other_thumb/<%- fileName %>">
+        <img src="images/day<%- day %>_other_thumb/<%- fileName %>" srcset="images/day<%- day %>_other_thumb2x/<%- fileName %> 2x" title="" alt="" loading="lazy" />
+      </picture>
+    </a>
+  </div>
+</div>
+
+<%_
+}
+_%>
+
+
+
+<%_
+//---------------------------------------------------------
+//
+// パリピ用 ファイルリスト自動取得
+//
+//---------------------------------------------------------
+otherlist = function(dayNum) {
+  let dayName = "day" + dayNum + "_other_thumb";
+  for(var j in dataOther){
+    if( dataOther[j].dir.match(dayName) ) {
+_%>
+
+<div class="other__item">
+  <div class="other__inner">
+    <a class="btn-other" href="images/day<%- dayNum %>_other_photo/<%- dataOther[j].base %>" title="<%- caption(dataOther[j].base) -%>">
+      <figure>
+        <img src="images/day<%- dayNum %>_other_thumb/<%- dataOther[j].base %>" title="" alt="" loading="lazy" />
+      </figure>
+    </a>
+  </div>
+</div>
+
+<%_
+    }
+  }
+}
+_%>

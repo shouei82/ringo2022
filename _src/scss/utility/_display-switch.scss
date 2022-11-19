@@ -1,0 +1,43 @@
+@use "../foundation/import" as *;
+
+/************************************
+
+Display switch
+
+************************************/
+
+.pc-block {
+  display: block;
+}
+
+.pc-inline {
+  display: inline;
+}
+
+.sp-block {
+  display: none;
+}
+
+.sp-inline {
+  display: none;
+}
+
+@include mq {
+  .pc-block {
+    display: none;
+  }
+
+  .sp-block {
+    display: block;
+  }
+}
+
+@include mq(480px) {
+  .pc-inline {
+    display: none;
+  }
+
+  .sp-inline {
+    display: inline;
+  }
+}

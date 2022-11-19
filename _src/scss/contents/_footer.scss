@@ -1,0 +1,66 @@
+@use "../foundation/import" as *;
+
+.footer {
+  padding: .8rem .5rem .8rem 1rem;
+  background: #272725;
+
+  @include mq {
+    padding: 10vw 10vw 1rem;
+  }
+}
+
+.footer__column {
+  display: flex;
+
+  @include mq {
+    display: block;
+  }
+}
+
+.footer__item {
+  &:last-of-type {
+    margin: 0 0 0 auto;
+
+    @include mq {
+      margin: .3rem 0 0;
+    }
+  }
+}
+
+.footer__link {
+  display: flex;
+  gap: min(.48rem, 5vw);
+  align-items: baseline;
+}
+
+.footer__link-item {
+  font-size: .12rem;
+
+  a {
+    color: $color-main;
+  }
+}
+
+.footer__logo {
+  width: 100%;
+  max-width: 147px;
+  opacity: .75;
+  fill: #fff;
+}
+
+.footer__term {
+  margin: 3em 0 0;
+  color: #cfcfcf;
+  font-size: .12rem;
+
+  a {
+    text-decoration: no;
+  }
+}
+
+.footer__copyright {
+  display: block;
+  margin: 1em 0 0;
+  color: #cfcfcf;
+  font-size: .12rem;
+}

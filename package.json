@@ -1,0 +1,38 @@
+{
+  "name": "ringo2022photo",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT Licence",
+  "devDependencies": {
+    "browser-sync": "^2.23.7",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-beautify": "^3.0.0",
+    "gulp-changed": "^4.0.0",
+    "gulp-concat": "*",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-csv2json": "^0.2.5",
+    "gulp-ejs": "4.1.2",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-plumber": "*",
+    "gulp-rename": "*",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "^5.1.0",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sass-glob-use-forward": "^0.1.3",
+    "gulp-stylelint": "*",
+    "gulp-tap": "^2.0.0",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.56.1",
+    "stylelint": "^14.4.0",
+    "stylelint-config-hudochenkov": "^6.0.1",
+    "stylelint-config-standard-scss": "*",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.1.0",
+    "vinyl-named": "^1.1.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

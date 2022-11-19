@@ -1,0 +1,51 @@
+@use "../foundation/import" as *;
+
+/************************************
+
+reset
+
+************************************/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  vertical-align: bottom;
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+address,
+em {
+  font-style: normal;
+}
+
+button {
+  padding: 0;
+  border: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+}

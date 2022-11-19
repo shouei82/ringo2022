@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= data.GA %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<%= data.GA %>');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+
+  <title><%= meta.title %><%= data.name %></title>
+
+  <meta name="description" content="<%= data.description %>">
+
+  <meta property="og:title" content="<%= data.name %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="<%= data.url %>images/ogp.png" />
+  <meta property="og:url" content="<%= data.url %>" />
+  <meta property="og:site_name" content="<%= data.name %>" />
+  <meta property="og:description" content="<%= data.description %>" />
+  <meta property="fb:app_id" content="<%= data.app %>" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="<%= data.twitter %>" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+  <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+
+</head>
+<body<% if(meta.page){ %> class="<%- meta.page %>"<% } %>>
+
+
+  <div class="opening">
+    <div class="opening__container">
+      <div class="opening__logo">
+        <svg viewBox="0 0 147.79 28.482" role="img" aria-label="りんご音楽祭"><use xlink:href="images/logo.svg#logo"></use></svg>
+      </div>
+      <div class="opening__line"></div>
+      <div class="opening__title">
+        <h1 class="opening__name">
+          <svg viewBox="0 0 614.039 37.322" role="img" aria-label="りんご音楽祭2022"><use xlink:href="images/title01.svg#title01"></use></svg>
+          <svg viewBox="0 0 624.447 37.929" role="img" aria-label="フォトギャラリー"><use xlink:href="images/title02.svg#title02"></use></svg>
+        </h1>
+        <div class="opening__date"><img src="images/date.svg" alt="9月23日/9月24日/9月25日"></div>
+      </div>
+
+      <div class="opening__line"></div>
+      <div class="opening__btn">
+        <img src="images/enter.svg" alt="Enter">
+      </div>
+    </div>
+    <div class="opening__bg">
+      <div class="slide swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/cccccc/000000/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/000000/ffffff/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/aa0000/000000/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/00aa00/000000/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/0000aa/000000/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/aa00aa/000000/150x150.png" alt=""></div>
+          <div class="swiper-slide slide__item"><img src="https://placehold.jp/150x150.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <header class="header">
+    <nav class="navigation">
+      <div class="navigation__group">
+        <button class="navigation__hum" aria-label="ナビゲーション開閉ボタン"><span></span></button>
+        <ul class="navigation__selector">
+          <li class="navigation__selector-item -top"><a href="./"><img src="images/navi01.svg" alt="23日（金）"></a></li>
+          <li class="navigation__selector-item -day2"><a href="day2.html"><img src="images/navi02.svg" alt="24日（土）"></a></li>
+          <li class="navigation__selector-item -day3"><a href="day3.html"><img src="images/navi03.svg" alt="25日（日）"></a></li>
+        </ul>
+      </div>
+
+
+      <div class="navigaton__container">
+        <div class="navigation__inner">
+
+          <div class="navigation__row">
+            <h1 class="navigation__title">
+              <svg viewBox="0 0 614.039 37.322" role="img" aria-label="りんご音楽祭2022"><use xlink:href="images/title01.svg#title01"></use></svg>
+              <svg viewBox="0 0 624.447 37.929" role="img" aria-label="フォトギャラリー"><use xlink:href="images/title02.svg#title02"></use></svg>
+            </h1>
+          </div><!-- /.navigation__row -->
+
+          <div class="navigation__row">
+            <div class="navigation__column">
+              <div class="navigation__item">
+                <div class="navigation__date-list">
+                  <h2 class="navigation__date"><a href="./"><img src="images/heading_day1.svg" alt="9.23FRI.DAY1"></a></h2>
+                  <h2 class="navigation__date"><a href="day2.html"><img src="images/heading_day2.svg" alt="9.24SAT.DAY2"></a></h2>
+                  <h2 class="navigation__date"><a href="day3.html"><img src="images/heading_day3.svg" alt="9.25SUN.DAY3"></a></h2>
+                </div>
+              </div><!-- /.navigation__item -->
+              <div class="navigation__item">
+                <h2 class="navigation__photographer-heading">
+                  <svg viewBox="0 0 402.096 19.198" role="img" aria-label="フォトグラファー">
+                    <use xlink:href="images/heading_photographers.svg#heading_photographers"></use>
+                  </svg>
+                </h2>
+                <ul class="navigation__photographer-list">
+                  <li class="navigation__photographer-item"><h3><a href="#">折井康弘</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">みやちとーる（ステキ工房）</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">平林岳志（grasshopper）</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">katsunori abe</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">渡邉和弘</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">古厩志帆</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">清水隆裕（HARVEST TIME）</a></h3></li>
+                  <li class="navigation__photographer-item"><h3><a href="#">河谷俊輔</a></h3></li>
+                </ul>
+                <div class="navigation__footer">
+                  <div class="navigation__footer-item"><h3><img src="images/logo.svg" alt="りんご音楽祭"></h3></div>
+                  <div class="navigation__footer-item"><a href="/photo/history/" target="_blank">HISTORY</a>　　<a href="/" target="_blank">RINGO FES.</a></div>
+                  <div class="navigation__footer-item"></div>
+                </div>
+              </div><!-- /.navigation__item -->
+            </div><!-- /.navigation__column -->
+          </div><!-- /.navigation__row -->
+
+        </div><!-- /.navigation__inner -->
+      </div><!-- /.navigaton__container -->
+
+    </nav>
+  </header>
+
+
+

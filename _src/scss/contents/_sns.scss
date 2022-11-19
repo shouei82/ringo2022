@@ -1,0 +1,22 @@
+@use "../foundation/import" as *;
+
+.sns {
+  display: flex;
+  gap: min(.3rem, 5vw);
+
+  @include mq {
+    justify-content: space-between;
+  }
+}
+
+.sns__item {
+  font-size: .28rem;
+
+  a {
+    color: #7e7e7e;
+
+    &:hover {
+      color: #e0e0e0;
+    }
+  }
+}

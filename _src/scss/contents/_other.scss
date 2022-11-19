@@ -1,0 +1,111 @@
+@use "../foundation/import" as *;
+
+.other {
+  padding: .25rem .45rem .45rem .25rem;
+
+  @include mq {
+    padding: .15rem .25rem .25rem .15rem;
+  }
+}
+
+.other__heading {
+  position: sticky;
+  top: .25rem;
+  z-index: 50;
+
+  @include mq {
+    width: 60vw;
+  }
+}
+
+.other__container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 1fr;
+  gap: min(.28rem, 2.8vw);
+  margin: -.15rem 0 0;
+  padding: 0 0 0 .2rem;
+
+  @include mq(1366px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include mq(1100px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include mq(900px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include mq(480px) {
+    grid-template-columns: repeat(3, 1fr);
+    margin: -.02rem 0 0;
+    padding: 0 0 0 .1rem;
+
+    //gap: .1rem;
+  }
+}
+
+.other__item {
+  position: relative;
+  padding-bottom: 100%;
+
+  @include transition;
+}
+
+.other__inner {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  //padding: .09rem;
+  background: #fff;
+  box-shadow: 15px 15px 30px rgba(#000, .12);
+  transition: .4s ease all;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: .09rem solid #fff;
+    pointer-events: none;
+
+    @include transition;
+  }
+
+  .other__item.-loaded & {
+  }
+
+  &:hover {
+    //transform: scale(.96);
+    cursor: pointer;
+
+    &::before {
+      //border-width: 0;
+    }
+
+    img {
+      transform: scale(1.08);
+    }
+
+    @include transition;
+  }
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    @include transition;
+  }
+}

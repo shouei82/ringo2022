@@ -1,0 +1,48 @@
+@use "../foundation/import" as *;
+
+.fade-in {
+  opacity: 0;
+
+  &.is-show {
+    opacity: 1;
+    transition: .7s ease opacity 1s;
+  }
+}
+
+.up-in {
+  opacity: 0;
+  transform: translate(0, .2rem);
+
+  &.is-show {
+    opacity: 1;
+    transition: .7s ease all;
+    transform: translate(0, 0);
+  }
+}
+
+.blur {
+  opacity: 0;
+
+  &.is-show {
+    animation: blur 1s ease forwards;
+  }
+}
+
+@keyframes fade {
+  100% { opacity: 1; }
+}
+
+@keyframes blur {
+  0% { opacity: 0; filter: blur(12px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+@keyframes mouseon {
+  1% { opacity: .3; }
+  100% { opacity: 1; }
+}
+
+@keyframes scale {
+  0% { opacity: 0; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}

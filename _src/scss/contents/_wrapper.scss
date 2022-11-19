@@ -1,0 +1,10 @@
+@use "../foundation/import" as *;
+
+.wrapper {
+  //overflow-x: hidden;
+  padding: 0 0 0 .55rem;
+
+  @include mq {
+    padding: 0 0 .55rem;
+  }
+}
