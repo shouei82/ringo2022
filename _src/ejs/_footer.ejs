@@ -1,3 +1,39 @@
+<div class="wrapper02">
+
+  <nav class="date">
+    <div class="date__item -top"><a href="./"><img src="images/heading_day1.svg" alt="9.23FRI. DAY1"></a></div>
+    <div class="date__item -day2"><a href="day2.html"><img src="images/heading_day2.svg" alt="9.24SAT. DAY2"></a></div>
+    <div class="date__item -day3"><a href="day3.html"><img src="images/heading_day3.svg" alt="9.25SUN. DAY3"></a></div>
+  </nav>
+
+  <div class="photographer-list">
+    <h2 class="photographer-list__heading">
+      <svg viewBox="0 0 402.096 19.198" role="img" aria-label="フォトグラファー">
+        <use xlink:href="images/heading_photographers.svg#heading_photographers"></use>
+      </svg>
+    </h2>
+    <ul class="photographer-list__container">
+      <%_ for(var n in dataArtist) { _%>
+        <%_ if(dataArtist[n].stage == "photographer") { _%>
+        <li class="photographer-list__item"><h3><a class="btn-artist btn-other" href="artist/photographer<%- dataArtist[n].order %>.html"><%- dataArtist[n].name %></a></h3></li>
+        <%_ } _%>
+      <%_ } _%>
+
+      <%#
+      <li class="photographer-list__item"><h3><a href="#">折井康弘</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">みやちとーる（ステキ工房）</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">平林岳志（grasshopper）</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">katsunori abe</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">渡邉和弘</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">古厩志帆</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">清水隆裕（HARVEST TIME）</a></h3></li>
+      <li class="photographer-list__item"><h3><a href="#">河谷俊輔</a></h3></li>
+      %>
+    </ul>
+  </div>
+
+</div>
+
 
 <footer class="footer">
   <div class="footer__column">
@@ -24,10 +60,12 @@
 </footer>
 
 
+<div class="bg"><img src="images/bg.svg" alt=""></div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox-min.js"></script>

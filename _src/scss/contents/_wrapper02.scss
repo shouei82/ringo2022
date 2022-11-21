@@ -1,0 +1,9 @@
+@use "../foundation/import" as *;
+
+.wrapper02 {
+  padding: .25rem .45rem .45rem 1rem;
+
+  @include mq {
+    padding: .25rem .25rem .55rem;
+  }
+}

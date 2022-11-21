@@ -66,6 +66,10 @@
 .opening__btn {
   text-align: center;
   animation: btn 1s linear infinite alternate;
+
+  & img:hover {
+    cursor: pointer;
+  }
 }
 
 @keyframes btn {
@@ -76,4 +80,14 @@
   position: relative;
   z-index: 100;
   background: #fff;
+  opacity: .8;
+}
+
+.opening__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
 }

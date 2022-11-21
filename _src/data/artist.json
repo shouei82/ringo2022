@@ -1,0 +1,74 @@
+[
+  {
+   "stage": "photographer",
+   "order": "001",
+   "name": "折井康弘",
+   "file": [
+      "001_orii.jpg",
+      "002_orii.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "002",
+   "name": "みやちとーる (ステキ工房) ",
+   "file": [
+      "001_tohr.jpg",
+      "002_tohr.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "003",
+   "name": "平林岳志 (grasshopper) ",
+   "file": [
+      "001_hira.jpg",
+      "002_hira.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "004",
+   "name": "katsunori abe",
+   "file": [
+      "001_kats.jpg",
+      "002_kats.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "005",
+   "name": "渡邉和弘",
+   "file": [
+      "001_wata.jpg",
+      "002_wata.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "006",
+   "name": "古厩志帆",
+   "file": [
+      "001_furu.jpg",
+      "002_furu.jpg"
+   ]
+},
+ {
+   "stage": "photographer",
+   "order": "007",
+   "name": "清水隆裕（HARVEST TIME）",
+   "file": [
+      "001_shim.jpg",
+      "002_shim.jpg"
+   ]
+},
+{
+  "stage": "photographer",
+  "order": "008",
+  "name": "河谷俊輔",
+  "file": [
+     "001_kawa.jpg",
+     "002_kawa.jpg"
+  ]
+}
+]

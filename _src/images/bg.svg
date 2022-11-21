@@ -1,0 +1,47 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 156 95" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#d3b981;}
+	.st1{fill:#c1a96d;}
+	.st2{fill:#af8d56;}
+	@keyframes rotate {
+		100% {
+			transform: rotate(360deg)
+		}
+	}
+
+	@keyframes rotate02 {
+		50% {
+			transform: scaleY(1.2) rotate(180deg);
+		}
+		100% {
+			transform: scaleY(1) rotate(360deg);
+		}
+	}
+
+	.top-outer {
+			transform-origin: 73px 69px;
+			animation: rotate 30s linear infinite;
+	}
+
+	.top-inner {
+			transform-origin: 73px 69px;
+			animation: rotate 20s linear infinite;
+	}
+
+	.bottom-outer {
+			transform-origin: 93px 59px;
+			animation: rotate02 38s linear infinite;
+	}
+
+	.bottom-inner {
+			transform-origin: 100px  80px;
+			animation: rotate02 30s linear infinite;
+	}
+</style>
+<rect x="-24" y="-105" class="st0" width="300" height="300"/>
+<path class="st1 bottom-outer" d="M128.1-14.6c39.5,17.1,73.8,65.8,57.9,98.8c-11.9,23.7-29,60.6-55.3,72.4c-26.3,13.2-63.2,2.6-96.1-25.1
+	C-3.6,98.7-1,59.1,22.7,27.5C45.1-1.4,79.4-35.6,128.1-14.6z"/>
+<path class="st2 bottom-inner" d="M99.1,14.4c42.1-11.9,59.3,17.1,60.6,38.2c4,35.6,10.5,38.2,0,55.3c-18.4,33-68.5,31.6-104,0
+	C28,84.2,53,27.5,99.1,14.4z"/>
+</svg>

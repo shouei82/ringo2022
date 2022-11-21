@@ -1,0 +1,13 @@
+<% include _functions %>
+
+<div class="photo" data-stage="<%- data.stage %>">
+  <!--<h2 class="photo__title"><%- data.name %></h2>-->
+  <%_ for(var i in jsonArtist) { _%>
+  <div class="photo__item">
+    <figure class="photo__img">
+      <img src="images/<%- data.stage %>_photo/<%- data.order %>/<%- jsonArtist[i] %>?v=02" title="">
+    </figure>
+    <figcaption class="photo__caption"><%- caption(jsonArtist[i],data.name,"top") %></figcaption>
+  </div>
+  <%_ } _%>
+</div>

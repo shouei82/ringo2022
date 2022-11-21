@@ -9,8 +9,9 @@
   const hira = '平林岳志（grasshopper）';
   const kats = 'katsunori abe';
   const wata = '渡邉和弘';
-  const higa = '東玄太';
-  const kuma = 'Shota Kumagai';
+  const furu = '古厩志帆';
+  const shim = '清水隆裕（HARVEST TIME）';
+  const kawa = '河谷俊輔';
 
   caption = function(str,artist,type) {
     let photoFileName = str.slice(4,-4);
@@ -22,8 +23,9 @@
       case 'hira':  photographer = hira; break;
       case 'kats':  photographer = kats; break;
       case 'wata':  photographer = wata; break;
-      case 'higa':  photographer = higa; break;
-      case 'kuma':  photographer = kuma; break;
+      case 'furu':  photographer = furu; break;
+      case 'shim':  photographer = shim; break;
+      case 'kawa':  photographer = kawa; break;
     }
 
     if(type == "top") {
@@ -108,7 +110,7 @@ _%>
 other = function(day,fileName) {
 _%>
 
-<div class="other__item">
+<div class="other__item anim">
   <div class="other__inner">
     <a href="images/day<%- day %>_other_photo/<%- fileName %>" title="<%- caption(fileName) -%>">
       <picture>

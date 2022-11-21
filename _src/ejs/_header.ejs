@@ -37,8 +37,9 @@
 </head>
 <body<% if(meta.page){ %> class="<%- meta.page %>"<% } %>>
 
+  <div class="loading"><div class="loading__item"></div></div>
 
-  <div class="opening">
+  <div class="opening" style="display: none;">
     <div class="opening__container">
       <div class="opening__logo">
         <svg viewBox="0 0 147.79 28.482" role="img" aria-label="りんご音楽祭"><use xlink:href="images/logo.svg#logo"></use></svg>
@@ -60,6 +61,7 @@
     <div class="opening__bg">
       <div class="slide swiper">
         <div class="swiper-wrapper">
+          <%#
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/cccccc/000000/150x150.png" alt=""></div>
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/000000/ffffff/150x150.png" alt=""></div>
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/aa0000/000000/150x150.png" alt=""></div>
@@ -67,9 +69,11 @@
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/0000aa/000000/150x150.png" alt=""></div>
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/aa00aa/000000/150x150.png" alt=""></div>
           <div class="swiper-slide slide__item"><img src="https://placehold.jp/150x150.png" alt=""></div>
+          %>
         </div>
       </div>
     </div>
+    <div class="opening__mask"></div>
   </div>
 
 
@@ -112,6 +116,12 @@
                   </svg>
                 </h2>
                 <ul class="navigation__photographer-list">
+                  <%_ for(var n in dataArtist) { _%>
+                    <%_ if(dataArtist[n].stage == "photographer") { _%>
+                    <li class="navigation__photographer-item"><h3><a class="btn-artist btn-other" href="artist/photographer<%- dataArtist[n].order %>.html"><%- dataArtist[n].name %></a></h3></li>
+                    <%_ } _%>
+                  <%_ } _%>
+                  <%#
                   <li class="navigation__photographer-item"><h3><a href="#">折井康弘</a></h3></li>
                   <li class="navigation__photographer-item"><h3><a href="#">みやちとーる（ステキ工房）</a></h3></li>
                   <li class="navigation__photographer-item"><h3><a href="#">平林岳志（grasshopper）</a></h3></li>
@@ -120,6 +130,7 @@
                   <li class="navigation__photographer-item"><h3><a href="#">古厩志帆</a></h3></li>
                   <li class="navigation__photographer-item"><h3><a href="#">清水隆裕（HARVEST TIME）</a></h3></li>
                   <li class="navigation__photographer-item"><h3><a href="#">河谷俊輔</a></h3></li>
+                  %>
                 </ul>
                 <div class="navigation__footer">
                   <div class="navigation__footer-item"><h3><img src="images/logo.svg" alt="りんご音楽祭"></h3></div>

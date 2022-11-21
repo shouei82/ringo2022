@@ -110,7 +110,7 @@ gulp.task("otherpath", function() {
 //----------------------------------
 gulp.task('ejsFunc', (done) => {
   const json   = JSON.parse(fs.readFileSync("_src/data/data.json"));
-  //const artist = JSON.parse(fs.readFileSync("_src/data/artist.json"));
+  const artist = JSON.parse(fs.readFileSync("_src/data/artist.json"));
 
   return gulp.src(['_src/ejs/**/*.ejs','!' + '_src/ejs/**/_*.ejs'])
   .pipe(plumber({
@@ -121,7 +121,7 @@ gulp.task('ejsFunc', (done) => {
   }))
   .pipe(ejs({
     data: json,
-    //dataArtist: artist,
+    dataArtist: artist,
     dataOther: otherPhoto
   }))
   .pipe(rename({ extname: '.html' }))

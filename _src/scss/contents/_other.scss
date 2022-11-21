@@ -51,7 +51,15 @@
   position: relative;
   padding-bottom: 100%;
 
+  //opacity: 0;
+  //transform: translate(0, 20px);
+
   @include transition;
+
+  //&.is-show {
+  //  opacity: 1;
+  //  transform: translate(0, 0);
+  //}
 }
 
 .other__inner {
@@ -62,7 +70,7 @@
 
   //padding: .09rem;
   background: #fff;
-  box-shadow: 15px 15px 30px rgba(#000, .12);
+  box-shadow: 15px 15px 30px rgba(#000, .18);
   transition: .4s ease all;
 
   &::before {
@@ -79,6 +87,10 @@
     pointer-events: none;
 
     @include transition;
+
+    @include mq {
+      border-width: .05rem;
+    }
   }
 
   .other__item.-loaded & {

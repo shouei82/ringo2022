@@ -1,0 +1,39 @@
+@use "../foundation/import" as *;
+
+.date {
+  display: flex;
+  gap: 8vw;
+  justify-content: space-around;
+  padding: 0 min(.4rem, 18vw);
+
+  //margin: .25rem .45rem 0;
+
+  @include mq {
+    flex-direction: column;
+    gap: 12vw;
+  }
+}
+
+.date__item {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -.07rem;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: $color-main;
+    transform: scaleX(0);
+    transform-origin: left bottom;
+
+    @include transition;
+  }
+
+  &.-active::after,
+  &:hover::after {
+    transform: scale(1);
+  }
+}
