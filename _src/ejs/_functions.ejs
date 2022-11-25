@@ -7,21 +7,21 @@
   const orii = '折井康弘';
   const tohr = 'みやちとーる（ステキ工房）';
   const hira = '平林岳志（grasshopper）';
-  const kats = 'katsunori abe';
+  const abek = 'katsunori abe';
   const wata = '渡邉和弘';
   const furu = '古厩志帆';
   const shim = '清水隆裕（HARVEST TIME）';
   const kawa = '河谷俊輔';
 
   caption = function(str,artist,type) {
-    let photoFileName = str.slice(4,-4);
+    let photoFileName = str.slice(4,-4).slice(-4);
     let photographer;
 
     switch (photoFileName){
       case 'orii':  photographer = orii; break;
       case 'tohr':  photographer = tohr; break;
       case 'hira':  photographer = hira; break;
-      case 'kats':  photographer = kats; break;
+      case 'abek':  photographer = abek; break;
       case 'wata':  photographer = wata; break;
       case 'furu':  photographer = furu; break;
       case 'shim':  photographer = shim; break;
@@ -40,11 +40,11 @@
     } else {
 
       // テスト用
-      //let url = "<span style='color:#F00;font-size:18px;font-weight:bold;'> " + str.slice(-12) + "</span>";
-      //return url + "　" + "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+      let url = "<span style='color:#F00;font-size:18px;font-weight:bold;'> " + str + "</span>";
+      return url + "　" + "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
 
       // 本番用
-      return "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
+      //return "<span class='credit-photographer'>PHOTO：" + photographer + "</span>";
 
     }
 
@@ -135,13 +135,21 @@ _%>
 //---------------------------------------------------------
 otherlist = function(dayNum) {
   let dayName = "day" + dayNum + "_other_thumb";
+
   for(var j in dataOther){
     if( dataOther[j].dir.match(dayName) ) {
+      let className;
+      if(dataOther[j].base.indexOf("artist") != -1) {
+        tagName = "artist";
+      } else {
+        tagName = "other";
+      }
 _%>
 
-<div class="other__item">
+<div class="other__item" data-tag="<%- tagName %>">
+  <div style="position: absolute;bottom: 0;right: 0;background: #FFF;color: #F00;z-index: 10;font-size: .12rem;"><%- dataOther[j].base.slice(0,-4); %></div>
   <div class="other__inner">
-    <a class="btn-other" href="images/day<%- dayNum %>_other_photo/<%- dataOther[j].base %>" title="<%- caption(dataOther[j].base) -%>">
+    <a class="btn-other" rel="show" href="images/day<%- dayNum %>_other_photo/<%- dataOther[j].base %>" title="<%- caption(dataOther[j].base) -%>">
       <figure>
         <img src="images/day<%- dayNum %>_other_thumb/<%- dataOther[j].base %>" title="" alt="" loading="lazy" />
       </figure>

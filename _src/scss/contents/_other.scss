@@ -12,9 +12,25 @@
   position: sticky;
   top: .25rem;
   z-index: 50;
+  pointer-events: none;
 
   @include mq {
     width: 60vw;
+  }
+}
+
+.other__selector {
+  position: sticky;
+  right: 0;
+  bottom: .3rem;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 -.45rem 0 0;
+  pointer-events: none;
+
+  @include mq {
+    bottom: .7rem;
   }
 }
 

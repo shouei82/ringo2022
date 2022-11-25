@@ -1,0 +1,8 @@
+[data-filter-view]:not([data-filter-view=""]) [data-tag] {
+  display: none;
+}
+
+[data-filter-view][data-filter-view~="artist"] [data-tag="artist"],
+[data-filter-view][data-filter-view~="other"] [data-tag="other"], {
+  display: block;
+}

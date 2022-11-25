@@ -28,27 +28,60 @@ function slider() {
   // random slide image
   //-------------------------------------------
   let randoms = []; // 重複チェック用配列
-  let min = 1, max = 20; // 最小値と最大値
 
-  // 重複チェックしながら乱数作成
+  // スライド写真20枚を選定
+  let slideSrc = [
+    "day1_other_photo/010_artist_tohr.jpg",
+    "day1_other_photo/040_furu.jpg",
+    "day1_other_photo/076_tohr.jpg",
+    "day1_other_photo/162_artist_hira.jpg",
+    "day1_other_photo/189_furu.jpg",
+    "day1_other_photo/263_tohr.jpg",
+    "day1_other_photo/277_tohr.jpg",
+    "day1_other_photo/304_wata.jpg",
+    "day1_other_photo/345_artist_hira.jpg",
+    "day1_other_photo/423_artist_shim.jpg",
+    "day1_other_photo/458_artist_wata.jpg",
+    "day1_other_photo/484_kawa.jpg",
+    "day2_other_photo/036_artist_hira.jpg",
+    "day2_other_photo/160_artist_abek.jpg",
+    "day2_other_photo/284_hira.jpg",
+    "day2_other_photo/321_artist_wata.jpg",
+    "day2_other_photo/675_artist_hira.jpg",
+    "day3_other_photo/016_shim.jpg",
+    "day3_other_photo/084_hira.jpg",
+    "day3_other_photo/432_artist_abek.jpg",
+    "day3_other_photo/704_artist_wata.jpg",
+    "day3_other_photo/735_artist_hira.jpg",
+    "day3_other_photo/794_artist_hira.jpg",
+    "day3_other_photo/865_artist_abek.jpg",
+    "day3_other_photo/875_furu.jpg"
+  ];
+
+  let min = 0, max = slideSrc.length; // 最小値と最大値
+
+  // 重複チェックしながらスライドを7枚設定
   for(i = min; i <= 7; i++){
     while(true){
       let tmp = intRandom(min, max);
       if(!randoms.includes(tmp)){
         randoms.push(tmp);
-        swiper.appendSlide('<div class="swiper-slide slide__item"><img src="images/slide/' + tmp + '.jpg" alt=""></div>');
+        //swiper.appendSlide('<div class="swiper-slide slide__item"><img src="images/slide/' + tmp + '.jpg" alt=""></div>');
+        swiper.appendSlide('<div class="swiper-slide slide__item"><img src="images/' + slideSrc[tmp] + '" alt=""></div>');
         break;
       }
     }
 
   }
-
+  console.log(randoms);
 }
 
 // min以上max以下の整数値の乱数を返す
 function intRandom(min, max){
-  let num = Math.floor( Math.random() * (max - min + 1)) + min;
-  return ( '000' + num ).slice( -3 );
+  //let num = Math.floor( Math.random() * (max - min + 1)) + min;
+  let num = Math.floor( Math.random() * max);
+  //return ( '000' + num ).slice( -3 );
+  return num;
 }
 
 
@@ -63,6 +96,8 @@ $(window).on("load",function(e){
     $(".opening").show();
     slider();
   }
+  //$(".opening").show();
+  //slider();
 });
 
 //console.log(randoms);
@@ -118,6 +153,62 @@ $(".navigation__hum, .navigaton__container a").on("click", function(){
 });
 
 
+//-------------------------------------------
+//
+// filter
+//
+//-------------------------------------------
+let widget = document.getElementById('js-filter');
+let checkboxes = widget.querySelectorAll('.selector__item input[type="checkbox"]');
+let checkedList = [];
+let i = 0;
+let leng = 0;
+let filter = function () {
+  checkedList = [];
+
+  i = 0;
+  leng = checkboxes.length;
+
+  for (i; i < leng; i++) {
+    if (checkboxes[i].checked) {
+      checkedList.push(checkboxes[i].value);
+    }
+  }
+
+  widget.setAttribute('data-filter-view', checkedList.join(' '));
+};
+
+
+i = 0;
+leng = checkboxes.length;
+
+for (i; i < leng; i++) {
+  checkboxes[i].addEventListener('change', filter);
+}
+
+
+
+//-------------------------------------------
+//
+// フィルターされた時にcolorboxの写真グループを変更する
+//
+//-------------------------------------------
+$("input").on("click",function(e){
+
+  if($(this).prop('checked')){
+
+    let val = $(this).val();
+    $(':not(input[value="' + val + '"])').prop('checked',false);
+    $('.other__item[data-tag="' + val + '"] a').attr("rel",val);
+
+  } else {
+
+    $('.other__item a').attr("rel","slideshow");
+
+  }
+
+});
+
 
 
 
@@ -129,7 +220,7 @@ $(".navigation__hum, .navigaton__container a").on("click", function(){
 //-------------------------------------------
 $(function(){
   $(".other__item a").colorbox({
-    rel:'slideshow',
+    //rel:'slideshow',
     transition: "fade",
     height:"90%",
     maxWidth:"95%",

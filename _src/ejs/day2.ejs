@@ -5,17 +5,24 @@
     title: ""
   }
 %>
-<%# include ./_functions %>
+<% include ./_functions %>
 <%- include("./_header",{meta: localmeta}) %>
 
 <div class="wrapper">
 
-  <div class="other">
+  <div id="js-filter" class="other">
     <h2 class="other__heading"><img src="images/heading_day2.svg" alt="9.24SAT. DAY2"></h2>
     <div class="other__container">
-      <%#- otherlist("2") %>
+      <%- otherlist("2") %>
+    </div>
+    <div class="other__selector">
+      <ul class="selector">
+        <li class="selector__item"><label><input type="checkbox" value="artist"><span></span>artist</label></li>
+        <li class="selector__item"><label><input type="checkbox" value="other"><span></span>other</label></li>
+      </ul>
     </div>
   </div>
+
 
 </div><!-- /.wrapper -->
 

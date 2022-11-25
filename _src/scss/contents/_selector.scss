@@ -1,0 +1,51 @@
+@use "../foundation/import" as *;
+
+.selector {
+  display: flex;
+  gap: .15rem;
+  padding: .5em 1.2em;
+  background: rgba(#000, .5);
+  pointer-events: all;
+}
+
+.selector__item {
+  font-family: Arial, Helvetica, sans-serif;
+
+  label {
+    font-size: .18rem;
+
+    @include mq {
+      font-size: .16rem;
+    }
+  }
+
+  input {
+    width: 0;
+    border: none;
+    outline: none;
+    appearance: none;
+  }
+
+  input ~ span::before {
+    content: "\f111";
+    display: inline-block;
+    margin: 0 .2em 0 0;
+    color: darken($color-bg, 10%);
+    font-weight: 600;
+    font-size: .16rem;
+    font-family: "font awesome 5 free";
+
+    //transform: translate(0, .1em);
+  }
+
+  input:checked ~ span::before {
+    content: "\f058";
+    display: inline-block;
+    border-radius: 50%;
+    background: $color-main;
+    color: #000;
+    font-weight: 600;
+    font-size: .16rem;
+    font-family: "font awesome 5 free";
+  }
+}
