@@ -19,7 +19,7 @@ function slider() {
     momentumBounce: false,
     speed: 2000,
     autoplay: {
-      delay: 8000
+      delay: 5000
     },
   });
 
@@ -43,25 +43,43 @@ function slider() {
     "day1_other_photo/423_artist_shim.jpg",
     "day1_other_photo/458_artist_wata.jpg",
     "day1_other_photo/484_kawa.jpg",
-    "day2_other_photo/036_artist_hira.jpg",
-    "day2_other_photo/160_artist_abek.jpg",
-    "day2_other_photo/284_hira.jpg",
-    "day2_other_photo/321_artist_wata.jpg",
-    "day2_other_photo/675_artist_hira.jpg",
+    "day2_other_photo/039_artist_hira.jpg",
+    "day2_other_photo/164_artist_abek.jpg",
+    "day2_other_photo/288_hira.jpg",
+    "day2_other_photo/325_artist_wata.jpg",
+    "day2_other_photo/680_artist_hira.jpg",
+    "day2_other_photo/073_furu.jpg",
+    "day2_other_photo/241_artist_tohr.jpg",
+    "day2_other_photo/310_wata.jpg",
+    "day2_other_photo/623_artist_furu.jpg",
+    "day2_other_photo/759_furu.jpg",
+    "day2_other_photo/736_artist_hira.jpg",
     "day3_other_photo/016_shim.jpg",
     "day3_other_photo/084_hira.jpg",
-    "day3_other_photo/432_artist_abek.jpg",
-    "day3_other_photo/704_artist_wata.jpg",
-    "day3_other_photo/735_artist_hira.jpg",
-    "day3_other_photo/794_artist_hira.jpg",
-    "day3_other_photo/865_artist_abek.jpg",
-    "day3_other_photo/875_furu.jpg"
+    "day3_other_photo/433_artist_abek.jpg",
+    "day3_other_photo/705_artist_wata.jpg",
+    "day3_other_photo/736_artist_hira.jpg",
+    "day3_other_photo/795_artist_hira.jpg",
+    "day3_other_photo/866_artist_abek.jpg",
+    "day3_other_photo/869_hira.jpg",
+    "day3_other_photo/004_artist_abek.jpg",
+    "day3_other_photo/122_shim.jpg",
+    "day3_other_photo/165_artist_wata.jpg",
+    "day3_other_photo/196_artist_wata.jpg",
+    "day3_other_photo/334_artist_kawa.jpg",
+    "day3_other_photo/373_artist_furu.jpg",
+    "day3_other_photo/477_artist_tohr.jpg",
+    "day3_other_photo/485_orii.jpg",
+    "day3_other_photo/539_artist_hira.jpg",
+    "day3_other_photo/749_artist_tohr.jpg",
+    "day3_other_photo/750_kawa.jpg",
+    "day3_other_photo/735_artist_tohr.jpg"
   ];
 
   let min = 0, max = slideSrc.length; // 最小値と最大値
 
   // 重複チェックしながらスライドを7枚設定
-  for(i = min; i <= 7; i++){
+  for(i = min; i <= 10; i++){
     while(true){
       let tmp = intRandom(min, max);
       if(!randoms.includes(tmp)){
@@ -73,7 +91,7 @@ function slider() {
     }
 
   }
-  console.log(randoms);
+  //console.log(randoms);
 }
 
 // min以上max以下の整数値の乱数を返す
@@ -92,6 +110,7 @@ $(window).on("load",function(e){
   // cookieが有効であればオープニングスライドを飛ばす
   if($.cookie('ringo2022pg') == 'visit') {
     $(".opening").hide();
+    $("body").addClass("-loaded");
   } else {
     $(".opening").show();
     slider();
@@ -108,6 +127,7 @@ $(window).on("load",function(e){
 //-------------------------------------------
 $(".opening__btn img").on("click", function(){
   $(".opening").slideUp(800,"easeOutExpo");
+  $("body").addClass("-loaded");
 
   // Cookie追加
   if($.cookie('ringo2022pg') != 'visit') {
@@ -127,14 +147,13 @@ $(function(){
   // ディレクトリ名と同じナビゲーションをアクティブに
   let now = location.href.replace(/\?.*$/,"").split('/');//現在のURLを配列で取得
   //let dir = now[3];
-  let dir = now[3].replace(".html","");
+  //let dir = now[3].replace(".html","");
+  let dir = now.slice(-1)[0].replace(".html","");
 
   let navClass = ".navigation__selector-item.-" + dir;
   let subnavClass = ".date__item.-" + dir;
   $(navClass).addClass("-active");
   $(subnavClass).addClass("-active");
-
-  //$(subnavClass).addClass("-active");
 
   // トップの場合
   if(!dir) {
@@ -199,11 +218,11 @@ $("input").on("click",function(e){
 
     let val = $(this).val();
     $(':not(input[value="' + val + '"])').prop('checked',false);
-    $('.other__item[data-tag="' + val + '"] a').attr("rel",val);
+    $('.other__item[data-tag="' + val + '"] .btn-other').attr("rel",val);
 
   } else {
 
-    $('.other__item a').attr("rel","slideshow");
+    $('.btn-other').attr("rel","slideshow");
 
   }
 
@@ -219,7 +238,7 @@ $("input").on("click",function(e){
 //
 //-------------------------------------------
 $(function(){
-  $(".other__item a").colorbox({
+  $(".btn-modal.btn-other").colorbox({
     //rel:'slideshow',
     transition: "fade",
     height:"90%",

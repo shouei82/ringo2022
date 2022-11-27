@@ -1,0 +1,44 @@
+#AuthUserFile /home/users/0/ringofes/web/ringofes.info/photo/2022/.htpasswd
+#AuthType Basic
+#AuthName "Web access"
+#Require valid-user
+#Satisfy all
+#Order deny,allow
+
+#<IfModule mod_rewrite.c>
+#RewriteEngine on
+#RewriteCond %{ENV:HTTPS} !on
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#</IfModule>
+
+
+#ErrorDocument 503 /maintenance.html
+#
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#
+#RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN} "<202112080800"
+#RewriteCond %{REQUEST_URI} !=/maintenance.html
+#
+#RewriteRule ^.*$ - [R=503,L]
+#</IfModule>
+
+
+<IfModule mod_setenvif.c>
+  SetEnvIf Request_URI "\.(jpe?g|png)$" _image_request
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{SCRIPT_FILENAME}.webp -f
+  RewriteRule .(jpe?g|png)$ %{SCRIPT_FILENAME}.webp [T=image/webp]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header append Vary Accept env=_image_request
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
