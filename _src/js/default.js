@@ -1,3 +1,16 @@
+//-------------------------------------------
+//
+//  smartphone
+//
+//-------------------------------------------
+function isSmartPhone() {
+  if (navigator.userAgent.match(/iPhone|iPad|Android.+Mobile/)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /*-------------------------------------
 
   opening
@@ -253,6 +266,69 @@ $(function(){
   });
 });
 
+
+
+//-------------------------------------------
+//
+// vertical photo function for colorbox
+//
+//-------------------------------------------
+function vertical(itemClass) {
+  $taegetClass = $(itemClass);
+  for (i=0; i<=$taegetClass.length; i++) {
+    let imgW  = $taegetClass.eq(i).width();
+    let imgH  = $taegetClass.eq(i).height();
+    if(imgW<imgH){
+    	$taegetClass.eq(i).not(".protect").addClass("-vertical");
+  	}
+  }
+}
+
+
+//-------------------------------------------
+//
+// colorbox for photographer
+//
+//-------------------------------------------
+$(function(){
+  if(isSmartPhone() == true) {
+
+    $(".btn-artist").colorbox({
+      transition: "fade",
+      initialWidth:"10%",
+      initialHeight:"1px",
+      width:"100%",
+      height: "100%",
+      maxWidth:"1420px",
+      innerHeight: "100%",
+      opacity:"0.95",
+      returnFocus: true,
+      scrolling: true,
+      reposition:  true,
+    });
+
+  } else {
+
+    $(".btn-artist").colorbox({
+      transition: "fade",
+      initialWidth:"10%",
+      initialHeight:"1px",
+      width:"100%",
+      maxWidth:"1420px",
+      opacity:"0.95",
+      returnFocus: true,
+      scrolling: false,
+      reposition: true,
+      onComplete : function() {
+        $(".photo__img").imagesLoaded().done(function(){
+          vertical(".photo__item");
+          $(this).colorbox.resize();
+        });
+      }
+    });
+
+  }
+});
 
 
 

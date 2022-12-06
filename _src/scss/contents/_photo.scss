@@ -1,0 +1,44 @@
+@use "../foundation/import" as *;
+
+.photo {
+  padding: .6rem .3rem;
+
+  @include mq {
+    padding: .6rem .12rem;
+  }
+}
+
+.photo__title {
+  margin: .3rem 0;
+  font-weight: bold;
+  font-size: .32rem;
+  font-feature-settings: "palt";
+}
+
+.photo__item {
+  margin-bottom: .3rem;
+
+  &.-vertical {
+    padding: 0 25%;
+
+    @include mq {
+      padding: 0;
+    }
+  }
+}
+
+.photo__img {
+
+}
+
+.photo__caption {
+  display: block;
+  margin-top: .04rem;
+  font-family: sans-serif;
+  text-align: right;
+
+  a {
+    color: $color-sub;
+    text-decoration: none;
+  }
+}

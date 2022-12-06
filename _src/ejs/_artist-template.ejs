@@ -5,7 +5,7 @@
   <%_ for(var i in jsonArtist) { _%>
   <div class="photo__item">
     <figure class="photo__img">
-      <img src="images/<%- data.stage %>_photo/<%- data.order %>/<%- jsonArtist[i] %>?v=02" title="">
+      <img src="images/<%- data.stage %>_photo/<%- data.order %>/<%- jsonArtist[i] %>" title="">
     </figure>
     <figcaption class="photo__caption"><%- caption(jsonArtist[i],data.name,"top") %></figcaption>
   </div>
