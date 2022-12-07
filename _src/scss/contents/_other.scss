@@ -1,10 +1,12 @@
 @use "../foundation/import" as *;
 
 .other {
-  padding: .25rem .45rem .45rem .25rem;
+  //padding: .25rem .45rem .45rem .25rem;
+  padding: .25rem 0 .45rem .25rem;
 
   @include mq {
-    padding: .15rem .25rem .25rem .15rem;
+    //padding: .15rem .25rem .25rem .15rem;
+    padding: .15rem 0 .25rem .15rem;
   }
 }
 
@@ -26,7 +28,8 @@
   z-index: 50;
   display: flex;
   justify-content: flex-end;
-  margin: 0 -.45rem 0 0;
+
+  //margin: 0 -.45rem 0 0;
   pointer-events: none;
 
   @include mq {
@@ -40,7 +43,7 @@
   grid-auto-rows: 1fr;
   gap: min(.28rem, 2.8vw);
   margin: -.15rem 0 0;
-  padding: 0 0 0 .2rem;
+  padding: 0 .45rem 0 .2rem;
 
   @include mq(1366px) {
     grid-template-columns: repeat(6, 1fr);
@@ -57,7 +60,7 @@
   @include mq(480px) {
     grid-template-columns: repeat(3, 1fr);
     margin: -.02rem 0 0;
-    padding: 0 0 0 .1rem;
+    padding: 0 .25rem 0 .1rem;
 
     //gap: .1rem;
   }
