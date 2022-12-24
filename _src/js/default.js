@@ -77,7 +77,6 @@ function slider() {
     "day3_other_photo/869_hira.jpg",
     "day3_other_photo/004_artist_abek.jpg",
     "day3_other_photo/122_shim.jpg",
-    "day3_other_photo/165_artist_wata.jpg",
     "day3_other_photo/196_artist_wata.jpg",
     "day3_other_photo/334_artist_kawa.jpg",
     "day3_other_photo/373_artist_furu.jpg",
