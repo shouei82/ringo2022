@@ -1,8 +1,8 @@
-//-------------------------------------------
-//
-//  smartphone
-//
-//-------------------------------------------
+/*-------------------------------------
+
+  smartphone
+
+--------------------------------------*/
 function isSmartPhone() {
   if (navigator.userAgent.match(/iPhone|iPad|Android.+Mobile/)) {
     return true;
@@ -96,21 +96,17 @@ function slider() {
       let tmp = intRandom(min, max);
       if(!randoms.includes(tmp)){
         randoms.push(tmp);
-        //swiper.appendSlide('<div class="swiper-slide slide__item"><img src="images/slide/' + tmp + '.jpg" alt=""></div>');
         swiper.appendSlide('<div class="swiper-slide slide__item"><img src="images/' + slideSrc[tmp] + '" alt=""></div>');
         break;
       }
     }
 
   }
-  //console.log(randoms);
 }
 
 // min以上max以下の整数値の乱数を返す
 function intRandom(min, max){
-  //let num = Math.floor( Math.random() * (max - min + 1)) + min;
   let num = Math.floor( Math.random() * max);
-  //return ( '000' + num ).slice( -3 );
   return num;
 }
 
@@ -127,11 +123,7 @@ $(window).on("load",function(e){
     $(".opening").show();
     slider();
   }
-  //$(".opening").show();
-  //slider();
 });
-
-//console.log(randoms);
 
 
 //-------------------------------------------
@@ -174,21 +166,21 @@ $(function(){
 });
 
 
-//-------------------------------------------
-//
-// navigation
-//
-//-------------------------------------------
+/*-------------------------------------
+
+  navigation
+
+--------------------------------------*/
 $(".navigation__hum, .navigaton__container a").on("click", function(){
   $(".navigation").toggleClass("is-open");
 });
 
 
-//-------------------------------------------
-//
-// filter
-//
-//-------------------------------------------
+/*-------------------------------------
+
+  filter
+
+--------------------------------------*/
 let widget = document.getElementById('js-filter');
 let checkboxes = widget.querySelectorAll('.selector__item input[type="checkbox"]');
 let checkedList = [];
@@ -200,7 +192,7 @@ let filter = function () {
   i = 0;
   leng = checkboxes.length;
 
-  for (i; i < leng; i++) {
+  for (i; i<leng; i++) {
     if (checkboxes[i].checked) {
       checkedList.push(checkboxes[i].value);
     }
@@ -213,17 +205,17 @@ let filter = function () {
 i = 0;
 leng = checkboxes.length;
 
-for (i; i < leng; i++) {
+for (i; i<leng; i++) {
   checkboxes[i].addEventListener('change', filter);
 }
 
 
 
-//-------------------------------------------
-//
-// フィルターされた時にcolorboxの写真グループを変更する
-//
-//-------------------------------------------
+/*-------------------------------------
+
+  フィルターされた時にcolorboxの写真グループを変更する
+
+--------------------------------------*/
 $("input").on("click",function(e){
 
   if($(this).prop('checked')){
@@ -243,64 +235,64 @@ $("input").on("click",function(e){
 
 
 
+/*-------------------------------------
 
-//-------------------------------------------
-//
-// colorbox for other
-//
-//-------------------------------------------
-$(function(){
-  $(".btn-modal.btn-other").colorbox({
-    //rel:'slideshow',
-    transition: "fade",
-    height:"90%",
-    maxWidth:"95%",
-    opacity:"0.95",
-    fixed: true,
-    returnFocus: true,
-    scrolling: false,
-    reposition: true,
-    slideshow: true,
-    slideshowSpeed: 6000
-  });
-});
+  縦位置の写真にclassをつける
 
-
-
-//-------------------------------------------
-//
-// vertical photo function for colorbox
-//
-//-------------------------------------------
+--------------------------------------*/
 function vertical(itemClass) {
   $taegetClass = $(itemClass);
   for (i=0; i<=$taegetClass.length; i++) {
     let imgW  = $taegetClass.eq(i).width();
     let imgH  = $taegetClass.eq(i).height();
-    if(imgW<imgH){
-    	$taegetClass.eq(i).not(".protect").addClass("-vertical");
-  	}
+    if(imgW < imgH){
+      $taegetClass.eq(i).not(".protect").addClass("-vertical");
+    }
   }
 }
 
 
-//-------------------------------------------
-//
-// colorbox for photographer
-//
-//-------------------------------------------
+
+
+
+/*-------------------------------------
+
+  colorbox
+
+--------------------------------------*/
+$(function(){
+  $(".btn-modal.btn-other").colorbox({
+    transition: "fade",
+    height: "90%",
+    maxWidth: "95%",
+    opacity: "0.95",
+    fixed: true,
+    returnFocus: true,
+    scrolling: false,
+    reposition: true,
+    slideshow: true,
+    slideshowSpeed : 6000
+  });
+});
+
+
+/*-------------------------------------
+
+  colorbox for photographer
+
+--------------------------------------*/
 $(function(){
   if(isSmartPhone() == true) {
 
     $(".btn-artist").colorbox({
       transition: "fade",
-      initialWidth:"10%",
-      initialHeight:"1px",
-      width:"100%",
+      initialWidth: "10%",
+      initialHeight: "1px",
+      width: "100%",
       height: "100%",
-      maxWidth:"1420px",
+      maxWidth: "1420px",
       innerHeight: "100%",
-      opacity:"0.95",
+      opacity: "0.95",
       returnFocus: true,
       scrolling: true,
       reposition:  true,
@@ -310,15 +302,15 @@ $(function(){
 
     $(".btn-artist").colorbox({
       transition: "fade",
-      initialWidth:"10%",
-      initialHeight:"1px",
-      width:"100%",
-      maxWidth:"1420px",
-      opacity:"0.95",
+      initialWidth: "10%",
+      initialHeight: "1px",
+      width: "100%",
+      maxWidth: "1420px",
+      opacity: "0.95",
       returnFocus: true,
       scrolling: false,
       reposition: true,
-      onComplete : function() {
+      onComplete: function() {
         $(".photo__img").imagesLoaded().done(function(){
           vertical(".photo__item");
           $(this).colorbox.resize();
